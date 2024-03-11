@@ -1,6 +1,7 @@
 package com.techtest.UserDataProcessor.Service;
 
 import com.techtest.UserDataProcessor.DAO.CustomerDAO;
+import com.techtest.UserDataProcessor.Entity.Customer;
 import com.techtest.UserDataProcessor.Repository.CustomerRepository;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
@@ -12,7 +13,6 @@ import java.util.List;
 
 @Service
 public class CustomerDataService {
-
     private CustomerRepository customerRepository;
     public CustomerDataService(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
@@ -54,8 +54,14 @@ public class CustomerDataService {
         }
     }
 
-    public void save(CustomerDAO customerDAO)
+    public CustomerDAO save(CustomerDAO customerDAO)
     {
-        customerRepository.save(customerDAO.getCustomerEntity());
+        return new CustomerDAO(customerRepository.save(customerDAO.customerEntity()));
+    }
+
+    public CustomerDAO getByCustomerRef(String customerRef)
+    {
+        Customer customer = customerRepository.findByCustomerRef(customerRef);
+        return new CustomerDAO(customer);
     }
 }

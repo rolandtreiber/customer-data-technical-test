@@ -10,9 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.ResourceUtils;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -43,11 +41,11 @@ public class CustomerDataServiceTests {
     @Test
     void customerDataPersistedInDB() {
         CustomerDAO customerDAO = new CustomerDAO(
-                "2","Jane Smith","456 Elm St","","Oakville","Anycounty","USA","67890"
+                "14","Jane Smith","456 Elm St","","Oakville","Anycounty","USA","67890"
         );
         customerDataService.save(customerDAO);
-        Customer customer = customerRepository.findById(1);
-        assertEquals(customer.getCustomerRef(), "2");
+        Customer customer = customerRepository.findByCustomerRef("14");
+        assertEquals(customer.getCustomerRef(), "14");
         assertEquals(customer.getName(), "Jane Smith");
         assertEquals(customer.getAddressLine1(), "456 Elm St");
         assertEquals(customer.getAddressLine2(), "");

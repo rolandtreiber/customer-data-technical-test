@@ -15,15 +15,14 @@ public class Customer {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
-
-    private String CustomerRef;
-    private String Name;
-    private String AddressLine1;
-    private String AddressLine2;
-    private String Town;
-    private String County;
-    private String Country;
-    private String PostCode;
+    private String customerRef;
+    private String name;
+    private String addressLine1;
+    private String addressLine2;
+    private String town;
+    private String county;
+    private String country;
+    private String postCode;
 
     public Long getId() {
         return id;
@@ -34,66 +33,66 @@ public class Customer {
     }
 
     public String getCustomerRef() {
-        return CustomerRef;
+        return customerRef;
     }
 
     public void setCustomerRef(String customerRef) {
-        CustomerRef = customerRef;
+        this.customerRef = customerRef;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getAddressLine1() {
-        return AddressLine1;
+        return addressLine1;
     }
 
     public void setAddressLine1(String addressLine1) {
-        AddressLine1 = addressLine1;
+        this.addressLine1 = addressLine1;
     }
 
     public String getAddressLine2() {
-        return AddressLine2;
+        return addressLine2;
     }
 
     public void setAddressLine2(String addressLine2) {
-        AddressLine2 = addressLine2;
+        this.addressLine2 = addressLine2;
     }
 
     public String getTown() {
-        return Town;
+        return town;
     }
 
     public void setTown(String town) {
-        Town = town;
+        this.town = town;
     }
 
     public String getCounty() {
-        return County;
+        return county;
     }
 
     public void setCounty(String county) {
-        County = county;
+        this.county = county;
     }
 
     public String getCountry() {
-        return Country;
+        return country;
     }
 
     public void setCountry(String country) {
-        Country = country;
+        this.country = country;
     }
 
     public String getPostCode() {
-        return PostCode;
+        return postCode;
     }
 
     public void setPostCode(String postCode) {
-        PostCode = postCode;
+        this.postCode = postCode;
     }
 }

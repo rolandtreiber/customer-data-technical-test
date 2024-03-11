@@ -1,0 +1,58 @@
+{
+	"info": {
+		"_postman_id": "ea481d15-a7f9-4a85-a1ee-5cc10abaa17f",
+		"name": "Customers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9064123"
+	},
+	"item": [
+		{
+			"name": "Get Customer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/customers/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"customerRef\": \"99\",\n    \"customerName\": \"Richard Smith\",\n    \"addressLine1\": \"55 Test Road\",\n    \"addressLine2\": \"Building A\",\n    \"town\": \"Testington\",\n    \"county\": \"Testershire\",\n    \"country\": \"UK\",\n    \"postcode\": \"PP01 5GT\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

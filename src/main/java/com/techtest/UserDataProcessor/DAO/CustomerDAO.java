@@ -34,7 +34,7 @@ public class CustomerDAO {
         this.postcode = postcode;
     }
 
-    public Customer getCustomerEntity()
+    public Customer customerEntity()
     {
         Customer customer = new Customer();
         customer.setCustomerRef(this.customerRef);
