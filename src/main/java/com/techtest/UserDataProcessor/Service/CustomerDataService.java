@@ -1,6 +1,7 @@
 package com.techtest.UserDataProcessor.Service;
 
 import com.techtest.UserDataProcessor.DAO.CustomerDAO;
+import com.techtest.UserDataProcessor.Repository.CustomerRepository;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,11 @@ import java.util.List;
 
 @Service
 public class CustomerDataService {
+
+    private CustomerRepository customerRepository;
+    public CustomerDataService(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+    }
 
     public List<CustomerDAO> parseCustomerListFromFile(File fileLocation) throws IOException {
         String[] headers = { "Customer Ref", "Customer Name", "Address Line 1", "Address Line 2", "Town", "County", "Country", "Postcode"};
@@ -41,4 +47,15 @@ public class CustomerDataService {
         return customers;
     }
 
+    public void importCustomerData(List<CustomerDAO> customerData)
+    {
+        for (CustomerDAO customerDAO : customerData) {
+            save(customerDAO);
+        }
+    }
+
+    public void save(CustomerDAO customerDAO)
+    {
+        customerRepository.save(customerDAO.getCustomerEntity());
+    }
 }
